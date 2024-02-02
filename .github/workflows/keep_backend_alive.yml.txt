@@ -1,0 +1,16 @@
+name: Keep Backend Alive by Attempting User Registration
+
+on:
+  schedule:
+    # Kjører hvert 5. minutt
+    - cron: '*/5 * * * *'
+
+jobs:
+  registration:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Attempt to register an existing user
+        run: >
+          curl -X POST -H "Content-Type: application/json"
+          -d '{"email":"123456789@gmail.com", "firstName":"Test", "lastName":"User", "password":"1"}'
+          https://cv-maker-backend.onrender.com/api/user/register
