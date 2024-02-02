@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Attempt to register an existing user
-        run: >
-          curl -X POST -H "Content-Type: application/json"
-          -d '{"email":"123456789@gmail.com", "firstName":"Test", "lastName":"User", "password":"1"}'
-          https://cv-maker-backend.onrender.com/api/user/register
+        run: |
+          curl -X POST -H "Content-Type: application/json" \
+          -d '{"email":"${{ secrets.USER_EMAIL }}", "firstName":"Test", "lastName":"User", "password":"${{ secrets.USER_PASSWORD }}"}' \
+          ${{ secrets.API_ENDPOINT }}
