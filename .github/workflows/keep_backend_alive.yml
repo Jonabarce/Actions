@@ -2,7 +2,7 @@ name: Keep Backend Alive by Attempting User Registration
 
 on:
   schedule:
-    - cron: '*/12 * * * *'
+    - cron: '*/14 * * * *'
 
 jobs:
   registration:
