@@ -2,7 +2,6 @@ name: Keep Backend Alive by Attempting User Registration
 
 on:
   schedule:
-    # Kjører hvert 5. minutt
     - cron: '*/5 * * * *'
 
 jobs:
